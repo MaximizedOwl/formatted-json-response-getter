@@ -14,8 +14,21 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #d8768e;
+  min-height: 10vh;
+  max-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-main {
+  background-color: #d1d6d8;
+  min-height: 90vh;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,4 +48,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#url-input {
+  width: 80vh;
+  height: 25px;
+}
+
+#result {
+  width: 100vh;
+  height: auto;
 }

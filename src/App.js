@@ -95,15 +95,7 @@ function App() {
         </div>
         <div className='resultArea'>
           <h2>Result</h2>
-          <textarea
-            name=''
-            id='result'
-            cols='150'
-            rows='25'
-            value={formattedResult}></textarea>
-          {/* <pre>
-              <code id='result'>{formattedResult}</code>
-            </pre> */}
+          <textarea name='' id='result' value={formattedResult}></textarea>
         </div>
         <div id='copy'>
           <button type='button' id='button' onClick={() => copyToClipboard()}>

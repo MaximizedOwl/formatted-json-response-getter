@@ -6,11 +6,14 @@ function App() {
   /* 
     JSONを取得し、整形、テキストエリアに出力する処理
   */
-  const useFormattedJson = () => {
+  const [formattedResult, setFormattedResult] = useState('');
+
+  const getFormattedJson = () => {
     console.log('getFormattedJson: 開始');
 
     console.log('apiRequest(): ' + apiRequest());
-    document.getElementById('result').value = apiRequest();
+    // document.getElementById('result').value = apiRequest();
+    setFormattedResult(apiRequest());
 
     console.log('getFormattedJson: 終了');
   };
@@ -19,16 +22,15 @@ function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const constructedUrl = 'https://api.github.com/users/defunkt';
-
-  // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
-
+  /* 
+    WebAPIを叩く処理
+  */
   const apiRequest = () => {
     console.log('APIリクエスト処理: 開始');
 
-    fetch(constructedUrl)
+    const url = document.getElementById('url-input').value;
+
+    fetch(url)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -55,6 +57,16 @@ function App() {
     }
   };
 
+  /* 
+    コードをクリップボードにコピーする処理
+  */
+  const copyToClipboard = () => {
+    var text = document.getElementById('result').value;
+    navigator.clipboard.writeText(text).then((e) => {
+      alert('コピーできました');
+    });
+  };
+
   return (
     <div className='App'>
       <header className='App-header'>
@@ -74,16 +86,29 @@ function App() {
                 required
               />
             </label>
-            <input type='button' value='取得' onClick={useFormattedJson} />
+            <input
+              type='button'
+              value='取得'
+              onClick={() => getFormattedJson()}
+            />
           </form>
         </div>
         <div className='resultArea'>
-          <div>
-            <h3>Result</h3>
-          </div>
-          <div className='resultJson'>
-            <textarea name='' id='result' cols='150' rows='25'></textarea>
-          </div>
+          <h2>Result</h2>
+          <textarea
+            name=''
+            id='result'
+            cols='150'
+            rows='25'
+            value={formattedResult}></textarea>
+          {/* <pre>
+              <code id='result'>{formattedResult}</code>
+            </pre> */}
+        </div>
+        <div id='copy'>
+          <button type='button' id='button' onClick={() => copyToClipboard()}>
+            Copy to Clipboard
+          </button>
         </div>
       </main>
     </div>

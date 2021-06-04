@@ -14,27 +14,27 @@
 }
 
 .App-header {
-  background-color: #d8768e;
+  background-color: #363334;
   min-height: 10vh;
   max-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(6px + 2vmin);
   color: white;
 }
 
 .App-main {
-  background-color: #d1d6d8;
+  background-color: #b6b6b6;
   min-height: 90vh;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(6px + 2vmin);
+  color: #363334;
 }
 
 .App-link {
@@ -52,7 +52,7 @@
 
 #url-input {
   width: 80vh;
-  height: 25px;
+  height: 20px;
 }
 
 #result {

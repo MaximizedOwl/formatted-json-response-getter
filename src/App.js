@@ -63,7 +63,7 @@ function App() {
   const copyToClipboard = () => {
     var text = document.getElementById('result').value;
     navigator.clipboard.writeText(text).then((e) => {
-      alert('コピーできました');
+      alert('Copied!');
     });
   };
 
@@ -88,7 +88,7 @@ function App() {
             </label>
             <input
               type='button'
-              value='取得'
+              value='Request'
               onClick={() => getFormattedJson()}
             />
           </form>
